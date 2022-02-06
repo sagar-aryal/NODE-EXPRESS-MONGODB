@@ -20,7 +20,7 @@ server.listen(port, hostname, () => {
 });
  */
 
-/*****  2.Making HTTP request  *****/
+/*****  2.Making HTTP get request  *****/
 
 /* 
 const request = https.get(
@@ -60,3 +60,59 @@ const request = axios
     console.error(error);
   }); 
   */
+
+/*****  2.Making HTTP post request  *****/
+
+/* 
+const data = JSON.stringify({
+  name: "Sagar",
+  location: "Finland",
+  job: "Software Developer",
+});
+
+const options = {
+  hostname: "reqres.in",
+  port: "",
+  path: "/api/users",
+  method: "POST",
+  header: {
+    "Content-Type": "application/json",
+    "Content-Length": data.length,
+  },
+};
+
+const request = https.request(options, (res) => {
+  let data = "";
+  console.log(`Status Code: ${res.statusCode}`);
+  res.on("data", (chunk) => {
+    data += chunk;
+  });
+  res.on("end", () => {
+    console.log(JSON.parse(data));
+  });
+  res.on("error", (err) => {
+    console.log("Error: " + err.message);
+  });
+});
+
+request.write(data);
+request.end();
+ */
+
+// post request using axios
+const axios = require("axios");
+
+const data = JSON.stringify({
+  name: "Sagar",
+  location: "Finland",
+  job: "Software Developer",
+});
+
+const req = axios
+  .post("https://reqres.in/api/users", data)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
