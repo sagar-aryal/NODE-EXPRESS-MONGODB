@@ -1,11 +1,12 @@
-const http = require("http");
+const https = require("https");
 
-// Building a http server
+/*****  1.Building a http server  *****/
 
+/* 
 const hostname = "127.0.0.1";
 port = 3000;
 
-const server = http.createServer((req, res) => {
+const server = https.createServer((req, res) => {
   // res.statusCode = 200;
   // res.setHeader("Content-Type", "text/html");
 
@@ -17,3 +18,40 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server is running at http://${hostname}:${port}/`);
 });
+ */
+
+/*****  2.Making HTTP request  *****/
+
+/* 
+const request = https.get(
+  "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
+  (res) => {
+    let data = "";
+
+    res.on("data", (chunk) => {
+      data += chunk;
+    });
+
+    res.on("end", () => {
+      //console.log(data);
+      console.log(JSON.parse(data)); // gives result in json format
+    });
+
+    res.on("error", (err) => {
+      console.log("Error. " + err.message);
+    });
+  }
+);
+ */
+
+// Using axios library
+
+const axios = require("axios");
+const request = axios
+  .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
