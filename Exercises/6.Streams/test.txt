@@ -1,0 +1,3 @@
+This file can be read in the localhost. Isn't it  weired?
+Lets try with stream again because it doesn't consume memory 
+and it is faster to execute in the browser.
