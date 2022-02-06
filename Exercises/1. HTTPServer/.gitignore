@@ -1,7 +1,8 @@
-
+# This leps to find files and folders
 *.log
 
 # Ignore node_modules folder
+test
 node_modules
 
 # Ignore package-lock.json file
