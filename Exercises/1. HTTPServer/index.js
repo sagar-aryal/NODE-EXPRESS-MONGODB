@@ -44,9 +44,13 @@ const request = https.get(
 );
  */
 
-// Using axios library
+// Using axios library which need to be installed before using it.
+// npm init -y
+// npm i axios
 
+/* 
 const axios = require("axios");
+
 const request = axios
   .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
   .then((res) => {
@@ -54,4 +58,5 @@ const request = axios
   })
   .catch((error) => {
     console.error(error);
-  });
+  }); 
+  */
