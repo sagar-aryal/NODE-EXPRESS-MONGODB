@@ -13,7 +13,7 @@ const path = require("path");
 
 // let file = path.isAbsolute("/users/test/test.json"); // returns if path is absolute.
 
-const name = "node";
-let file = path.join("/", "demo", "test", name, "test.json");
-
+/* const name = "node";
+let file = path.join("/", "demo", "test", name, "test.json"); // joins path parts.
+ */
 console.log(file);
